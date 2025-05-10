@@ -28,6 +28,5 @@ services:
       - consultas-medicas-api
 networks:
   default:
-    external:
-      name: microservicios-net
-
+    name: microservicios-net
+    external: true
