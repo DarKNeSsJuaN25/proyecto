@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  pacientes-api:
+    build: ./pacientes
+    ports:
+      - "5000:5000"
+    env_file:
+      - pacientes/.env
+
+  consultas-medicas-api:
+    build: ./consultas-medicas
+    ports:
+      - "3000:3000"
+    env_file:
+      - consultas-medicas/.env
+
+  orquestador:
+    build:
+      context: ./orquestador
+    container_name: orquestador
+    ports:
+      - "5002:5002"
+    environment:
+      - PACIENTES_API_URL=http://pacientes-api:5000
+      - CONSULTAS_API_URL=http://consultas-medicas-api:3000
+    depends_on:
+      - pacientes-api
+      - consultas-medicas-api
+networks:
+  default:
+    external:
+      name: microservicios-net
+
