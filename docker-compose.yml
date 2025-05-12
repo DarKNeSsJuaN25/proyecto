@@ -13,6 +13,15 @@ services:
     env_file:
       - consultas-medicas/.env
 
+  labexamns-api:
+    build:
+      context: ./Microservicio3-main
+    container_name: labexamns-api
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://13.218.248.92:27017/lab_exams_db
+
   orquestador:
     build:
       context: ./orquestador
