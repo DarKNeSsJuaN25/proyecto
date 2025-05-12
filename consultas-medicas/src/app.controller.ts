@@ -38,4 +38,13 @@ export class AppController {
     return this.appService.getConsultasPorMedico(id);
   }
 
+  @Get('medicos')
+  getMedicos() {
+    return this.appService.getAllMedicos();
+  }
+
+  @Get('consultas')
+  getConsultas() {
+    return this.appService.getAllConsultas();
+  }
 }

@@ -148,5 +148,15 @@ export class AppService implements OnModuleInit {
     }
     return result.rows[0];
   }
+  async getAllMedicos() {
+    const result = await this.pool.query('SELECT * FROM medico');
+    return result.rows;
+  }
+
+  async getAllConsultas() {
+    const result = await this.pool.query('SELECT * FROM consulta LIMIT 100');
+    return result.rows;
+  }
+
 
 }

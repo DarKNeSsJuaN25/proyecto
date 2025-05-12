@@ -13,6 +13,7 @@ DB_HOST = os.getenv('DB_HOST')
 DB_USER = os.getenv('MYSQL_USER')
 DB_PASSWORD = os.getenv('MYSQL_PASSWORD')
 DB_NAME = os.getenv('MYSQL_DATABASE')
+DB_PORT = os.getenv('MYSQL_PORT')
 
 
 def db_connection():
@@ -21,6 +22,7 @@ def db_connection():
             host=DB_HOST,
             user=DB_USER,
             password=DB_PASSWORD,
+            port=DB_PORT,
             database=DB_NAME
         )
         return conn
@@ -32,6 +34,7 @@ def db_connection():
 def create_database():
     conn = mysql.connector.connect(
         host=DB_HOST,
+        port=DB_PORT,
         user=DB_USER,
         password=DB_PASSWORD
     )
@@ -243,6 +246,49 @@ def get_contactos(id):
         return jsonify(contactos), 200
     else:
         return jsonify({'error': 'No se encontraron contactos para el paciente'}), 404
+@app.route('/pacientes', methods=['GET'])
+@swag_from({
+    'tags': ['Pacientes'],
+    'responses': {
+        200: {'description': 'Lista de pacientes'},
+        500: {'description': 'Error en la base de datos'}
+    }
+})
+def get_all_pacientes():
+    conn = db_connection()
+    if conn is None:
+        return jsonify({'error': 'No se pudo conectar a la base de datos'}), 500
+
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM pacientes")
+    pacientes = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
+    return jsonify(pacientes), 200
+
+
+@app.route('/contactos', methods=['GET'])
+@swag_from({
+    'tags': ['Contactos'],
+    'responses': {
+        200: {'description': 'Lista de contactos'},
+        500: {'description': 'Error en la base de datos'}
+    }
+})
+def get_all_contactos():
+    conn = db_connection()
+    if conn is None:
+        return jsonify({'error': 'No se pudo conectar a la base de datos'}), 500
+
+    cursor = conn.cursor(dictionary=True)
+    cursor.execute("SELECT * FROM contactos_pacientes")
+    contactos = cursor.fetchall()
+    cursor.close()
+    conn.close()
+
+    return jsonify(contactos), 200
+
 
 
 @app.route('/', methods=['GET'])
