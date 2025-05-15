@@ -2,7 +2,7 @@
 
 ## Descripción del Proyecto
 
-SaludCare es una plataforma innovadora para la digitalización de servicios médicos, desarrollada como parte de mi portafolio de proyectos. Implementa una arquitectura moderna basada en microservicios que permite gestionar consultas médicas, exámenes de laboratorio y la relación con los pacientes de manera eficiente.
+SaludCare es una plataforma innovadora para la digitalización de servicios médicos que utiliza una arquitectura basada en microservicios para gestionar consultas médicas, exámenes de laboratorio y la relación con los pacientes. Está desplegada en la nube utilizando AWS, garantizando una infraestructura confiable, escalable y flexible que mejora la eficiencia en el sector salud frente a sistemas tradicionales.
 
 ## Características Principales
 
@@ -63,7 +63,6 @@ SaludCare es una plataforma innovadora para la digitalización de servicios méd
 
 - [https://github.com/DarKNeSsJuaN25/ingesta-consultas](https://github.com/DarKNeSsJuaN25/ingesta-consultas)
 - [https://github.com/DarKNeSsJuaN25/ingesta-p1](https://github.com/DarKNeSsJuaN25/ingesta-p1)
-- [https://github.com/DarKNeSsJuaN25/proyecto](https://github.com/DarKNeSsJuaN25/proyecto)
 
 ## Logros y Aprendizajes
 
@@ -72,14 +71,6 @@ SaludCare es una plataforma innovadora para la digitalización de servicios méd
 - Utilización de bases de datos específicas para cada tipo de servicio (SQL y NoSQL)
 - Configuración de infraestructura cloud en AWS con alta disponibilidad
 - Estrategias de recopilación y análisis de datos para inteligencia de negocio
-
-## Contacto
-
-¿Interesado en saber más sobre este proyecto o mis habilidades? ¡Contáctame!
-
-- **Email**: adrian.auqui@utec.edu.pe
-- **LinkedIn**: [AdrianAuquiPerez](https://www.linkedin.com/in/adrian-antonio-auqui-perez-a079b2291/)
-- **GitHub**: [Auky216](https://github.com/Auky216)
 
 ## Imágenes de Referencia
 
@@ -92,6 +83,4 @@ SaludCare es una plataforma innovadora para la digitalización de servicios méd
 ### Examenes
 ![Dashboard de Análisis](S3.png)
 
----
 
-*Este proyecto fue desarrollado como parte de mi portafolio para demostrar mis habilidades en arquitectura de microservicios, desarrollo full-stack y soluciones cloud.*
