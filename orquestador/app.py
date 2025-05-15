@@ -3,11 +3,20 @@ import requests
 from dotenv import load_dotenv
 import os
 from flasgger import Swagger, swag_from
-
+from flask_cors import CORS
 load_dotenv()
 
+swagger_template = {
+    "swagger": "2.0",
+    "info": {
+        "title": "API del Orquestador - MV1",
+        "version": "1.0",
+        "description": "API para gestionar pacientes y medicos"
+    },
+}
 app = Flask(__name__)
-Swagger(app)
+CORS(app=app)
+Swagger(app,template=swagger_template)
 
 PACIENTES_API_URL = os.getenv('PACIENTES_API_URL', 'http://pacientes:5000')
 CONSULTAS_API_URL = os.getenv('CONSULTAS_API_URL', 'http://consultas-medicas:3000')
