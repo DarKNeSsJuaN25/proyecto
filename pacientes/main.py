@@ -2,10 +2,21 @@ from flask import Flask, request, jsonify
 from flasgger import Swagger, swag_from
 import mysql.connector
 from dotenv import load_dotenv
+from flask_cors import CORS
 import os
 
 app = Flask(__name__)
-Swagger(app)  # Swagger habilitado
+CORS(app=app)
+swagger_template = {
+    "swagger": "2.0",
+    "info": {
+        "title": "API de Pacientes - MV1",
+        "version": "1.0",
+        "description": "API para gestionar pacientes y contactos"
+    },
+}
+
+Swagger(app,template=swagger_template)  # Swagger habilitado
 
 load_dotenv()
 
@@ -299,4 +310,4 @@ def index():
 if __name__ == '__main__':
     create_database()
     create_tables()
-    app.run(debug=True, port=5000, host='0.0.0.0')
+    app.run(debug=True, port=5005, host='0.0.0.0')
