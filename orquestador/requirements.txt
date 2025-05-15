@@ -6,6 +6,7 @@ click==8.1.8
 dotenv==0.9.9
 flasgger==0.9.7.1
 flask==3.1.0
+flask-cors==5.0.1
 idna==3.10
 importlib-metadata==8.7.0
 itsdangerous==2.2.0
